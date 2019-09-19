@@ -3,22 +3,23 @@ from matplotlib import pyplot as plt
 import matplotlib.font_manager
 import pandas as pd
 
-##################################
-########     g = 1.0      ########
-##################################
-
 plt.rc('text',usetex=True)
 font = {'family':'serif','size':14}
 plt.rc('font',**font)
 
-CI_g1 = pd.read_csv('Data/ny/CI_g=1.csv')
+##################################
+########     g = -1.0      ########
+##################################
+
+
+CI_g1 = pd.read_csv('Data/ny/CI_g=-1.csv')
 CC_g1 = pd.read_csv('Data/CCTime_1.csv')
 
 # CC Alpha
-CC_g1_a02 = pd.read_csv('Data/ny/CC_g=1_a=0.2.csv')
-CC_g1_a04 = pd.read_csv('Data/ny/CC_g=1_a=0.4.csv')
-CC_g1_a06 = pd.read_csv('Data/ny/CC_g=1_a=0.6.csv')
-CC_g1_a08 = pd.read_csv('Data/ny/CC_g=1_a=0.8.csv')
+CC_g1_a02 = pd.read_csv('Data/ny/CC_g=-1_a=0.2.csv')
+CC_g1_a04 = pd.read_csv('Data/ny/CC_g=-1_a=0.4.csv')
+CC_g1_a06 = pd.read_csv('Data/ny/CC_g=-1_a=0.6.csv')
+CC_g1_a08 = pd.read_csv('Data/ny/CC_g=-1_a=0.8.csv')
 
 #print(CI_g1)
 #print(CC_g1)
@@ -49,15 +50,15 @@ plt.title('Energy as a function of basis states',fontsize=20)
 plt.xlabel('Number of basis states',fontsize=16)
 plt.ylabel('Energy [Hartrees]',fontsize=16)
 #plt.plot(x,E02,label=r'$\alpha=0.2$')
-plt.plot(x,E04,label=r'$\alpha=0.4$')
-plt.plot(x,E06,label=r'$\alpha=0.6$')
-plt.plot(x,E08,label=r'$\alpha=0.8$')
-plt.plot(x,CI_E_g1,label='CI')
+plt.semilogy(x,E04,label=r'$\alpha=0.4$')
+plt.semilogy(x,E06,label=r'$\alpha=0.6$')
+plt.semilogy(x,E08,label=r'$\alpha=0.8$')
+plt.semilogy(x,CI_E_g1,label='CI')
 plt.legend()
 
 # ------- Energy Difference ------- #
 plt.figure(figsize=[7,5])
-plt.title(r'|$E_{CI} - E_{CC}$|',fontsize=20)
+plt.title('Energy difference from $E_{CI}$',fontsize=20)
 plt.xlabel('Number of basis states',fontsize=16)
 plt.ylabel(r'$\Delta E$',fontsize=16)
 #plt.plot(x,np.abs(E02-CI_E_g1),label=r'$\alpha=0.2$')
