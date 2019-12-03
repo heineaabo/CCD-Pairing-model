@@ -1,8 +1,8 @@
 # Coupled cluster doubles on the simple pairing model
 Finding the ground state energy of the pairing model
-\begin{equation}
+$$\display
 \hat{H} = \xi\sum_{p\sigma}(p-1)\hat{n}_p - \frac{1}{2}g\sum_{pq}P^+_pP_q^-
-\end{equation}
+$$
 
 ### Run CCD code
 Run the CCD_pairing.py script as follows
