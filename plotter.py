@@ -4,8 +4,8 @@ from hamiltonian import *
 import matplotlib.pyplot as plt
 import sys
 
-particles = 4
-pairs = 2
+particles = int(sys.argv[1])
+pairs = particles/2
 
 g = 1
 delta = 1
@@ -15,7 +15,7 @@ if g > 0:
 else:
     alpha = 0.4
 
-n = 20 # Basis
+n = int(sys.argv[2]) # Basis
  
 CI_basis = np.array(list(range(particles,n+pairs)))
 CC_basis = CI_basis*2 - particles
